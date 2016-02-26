@@ -15,7 +15,7 @@ class AccountSpec extends Specification {
 
         given:
         def accountsBefore = Account.count()
-        def aUser = new Account("fullName": 'Nayna Nayate', "emailAddress": 'nayat002@umn.edu', "accountHandle": 'nayna', "accountPassword": 'S0m3Word')
+        def aUser = new Account(fullName: 'Nayna Nayate', emailAddress: 'nayat002@umn.edu', accountHandle: 'nayna', accountPassword: 'S0m3Word')
 
         when:
         aUser.save()
@@ -30,7 +30,7 @@ class AccountSpec extends Specification {
 
         given:
         def accountsBefore = Account.count()
-        def aUser = new Account("fullName": fullName, "emailAddress": emailAddress, "accountHandle": accountHandle, "accountPassword": accountPassword)
+        def aUser = new Account(fullName: fullName, emailAddress: emailAddress, accountHandle: accountHandle, accountPassword: accountPassword)
 
         when:
         aUser.save()
@@ -51,7 +51,7 @@ class AccountSpec extends Specification {
     def "A3. Saving an account with an invalid password will fail. Passwords must be 8-16 characters and have at least 1 number, at least one lower-case letter, at least 1 upper-case letter (data-driven unit test)"() {
         setup:
         def accountsBefore = Account.count()
-        def cuser = ["accountHandle": 'walterauma', "fullName": 'Walter Auma', "emailAddress": 'walterauma@umn.edu', "accountPassword": accPass]
+        def cuser = [accountHandle: 'walterauma', fullName: 'Walter Auma', emailAddress: 'walterauma@umn.edu', accountPassword: accPass]
         def user = new Account(cuser)
 
         when: "When an attempt is made to save user information"
@@ -81,7 +81,7 @@ class AccountSpec extends Specification {
     def 'account saves with valid password: #descrip'() {
         setup:
         def accountsBefore = Account.count()
-        def cuser = ["accountHandle": 'walterauma', "fullName": 'Walter Auma', "emailAddress": 'walterauma@umn.edu', "accountPassword": accPass]
+        def cuser = [accountHandle: 'walterauma', fullName: 'Walter Auma', emailAddress: 'walterauma@umn.edu', accountPassword: accPass]
         def user = new Account(cuser)
 
         when: "When an attempt is made to save user information"

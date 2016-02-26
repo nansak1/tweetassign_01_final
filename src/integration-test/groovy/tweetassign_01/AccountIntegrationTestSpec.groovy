@@ -13,10 +13,10 @@ class AccountIntegrationTestSpec extends Specification {
         setup:
         def accountsBefore = Account.count()
         def arr = [
-                ["accountHandle": 'walterauma', "fullName": 'Walter Auma', "emailAddress": 'walterauma@umn.edu', "accountPassword": "msse2016ASSIGN"],
-                ["accountHandle": 'naynanayate', "fullName": 'Nayna Nayate', "emailAddress": 'walterauma@umn.edu', "accountPassword": "msse2016ASSIGN"],
-                ["accountHandle": 'walterauma', "fullName": 'Nayna Nayate', "emailAddress": 'naynan@umn.edu', "accountPassword": "msse2016ASSIGN"],
-                ["accountHandle": 'nayna2016', "fullName": 'Nayna Natalie', "emailAddress": 'natalien@umn.edu', "accountPassword": "msse2016ASSIGN"]
+                [accountHandle: 'walterauma', fullName: 'Walter Auma', emailAddress: 'walterauma@umn.edu', accountPassword: "msse2016ASSIGN"],
+                [accountHandle: 'naynanayate', fullName: 'Nayna Nayate', emailAddress: 'walterauma@umn.edu', accountPassword: "msse2016ASSIGN"],
+                [accountHandle: 'walterauma', fullName: 'Nayna Nayate', emailAddress: 'naynan@umn.edu', accountPassword: "msse2016ASSIGN"],
+                [accountHandle: 'nayna2016', fullName: 'Nayna Natalie', emailAddress: 'natalien@umn.edu', accountPassword: "msse2016ASSIGN"]
         ]
 
         def acc01 = new Account(arr[0]) // initial valid account
@@ -58,10 +58,10 @@ class AccountIntegrationTestSpec extends Specification {
     def "F1. An account may have multiple followers (integration test)"() {
         setup:
         def arr = [
-                ["accountHandle": 'walterauma', "fullName": 'Walter Auma', "emailAddress": 'walterauma@umn.edu', "accountPassword": "msse2016ASSIGN"],
-                ["accountHandle": 'naynanayate', "fullName": 'Nayna Nayate', "emailAddress": 'naynayate@umn.edu', "accountPassword": "msse2016ASSIGN"],
-                ["accountHandle": 'janeakinyi', "fullName": 'Janet Akinyi', "emailAddress": 'jakinyi@umn.edu', "accountPassword": "msse2016ASSIGN"],
-                ["accountHandle": 'nnatalie', "fullName": 'Nayna Natalie', "emailAddress": 'natalien@umn.edu', "accountPassword": "msse2016ASSIGN"]
+                [accountHandle: 'walterauma', fullName: 'Walter Auma', emailAddress: 'walterauma@umn.edu', accountPassword: 'msse2016ASSIGN'],
+                [accountHandle: 'naynanayate', fullName: 'Nayna Nayate', emailAddress: 'naynayate@umn.edu', accountPassword: 'msse2016ASSIGN'],
+                [accountHandle: 'janeakinyi', fullName: 'Janet Akinyi', emailAddress: 'jakinyi@umn.edu', accountPassword: 'msse2016ASSIGN'],
+                [accountHandle: 'nnatalie', fullName: 'Nayna Natalie', emailAddress: 'natalien@umn.edu', accountPassword: 'msse2016ASSIGN']
         ]
 
         def acc01 = new Account(arr[0]).save(flush: true, failOnError: true)
@@ -73,7 +73,7 @@ class AccountIntegrationTestSpec extends Specification {
 
         // Add new account with multiple followers
 
-        def newAcc = new Account("accountHandle": 'billgraham', "fullName": 'Bill Graham', "emailAddress": 'bgraham@umn.edu', "accountPassword": "msse2016ASSIGN", "followers": acc01)
+        def newAcc = new Account(accountHandle: 'billgraham', fullName: 'Bill Graham', emailAddress: 'bgraham@umn.edu', accountPassword: 'msse2016ASSIGN', followers: acc01)
         newAcc.addToFollowers(acc02)
         newAcc.addToFollowers(acc04)
         newAcc.save(flush: true, failOnError: true)
@@ -108,8 +108,8 @@ class AccountIntegrationTestSpec extends Specification {
 
         setup:
 
-        def userA = new Account(accountHandle: 'walterauma', fullName: 'Walter Auma', emailAddress: 'walterauma@umn.edu', accountPassword: "msse2016ASSIGN")
-        def userB = new Account(accountHandle: 'naynan', fullName: 'Nayna Nayate', emailAddress: 'naynan@umn.edu', accountPassword: "msse2016ASSIGN")
+        def userA = new Account(accountHandle: 'walterauma', fullName: 'Walter Auma', emailAddress: 'walterauma@umn.edu', accountPassword: 'msse2016ASSIGN')
+        def userB = new Account(accountHandle: 'naynan', fullName: 'Nayna Nayate', emailAddress: 'naynan@umn.edu', accountPassword: 'msse2016ASSIGN')
 
 
         when:
