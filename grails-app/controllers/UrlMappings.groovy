@@ -10,7 +10,7 @@ class UrlMappings {
         "/"(view:"/index")
         "500"(view:'/error')
         "404"(view:'/notFound')
-//        "/accounts"(resources:"account")
-//        "/messages"(resources:"message")
+        "/accounts"(resources:"account",format=['JSON','XML'])
+        "/messages"(resources:"message")
     }
 }

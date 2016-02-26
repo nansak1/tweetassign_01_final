@@ -1,8 +1,8 @@
 package tweetassign_01
 
-//import grails.rest.Resource
+import grails.rest.Resource
 
-//@Resource()
+@Resource()
 class Message {
     String msgText
     Date dateCreated
