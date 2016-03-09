@@ -18,7 +18,7 @@ class AccountSpec extends Specification {
         def aUser = new Account(fullName: 'Nayna Nayate', emailAddress: 'nayat002@umn.edu', accountHandle: 'nayna', accountPassword: 'S0m3Word')
 
         when:
-        aUser.save()
+        aUser.save(flush:true,failOnError:true)
 
         then:
         aUser.id
